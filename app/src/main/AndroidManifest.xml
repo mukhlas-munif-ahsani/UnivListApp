@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.univlist">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/univ_list_icon"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/univ_list_icon"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".TambahData4.TambahDataActivity4"></activity>
+        <activity android:name=".TambahData3.TambahDataActivity3" />
+        <activity android:name=".TambahData2.TambahDataActivity2" />
+        <activity android:name=".TambahData1.view.TambahDataActivity1" />
+        <activity android:name=".DetailProdi.View.DetailProdiActivity" />
+        <activity android:name=".ListUnivFragment.ListUnivActivity" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>

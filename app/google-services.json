@@ -1,0 +1,77 @@
+{
+  "project_info": {
+    "project_number": "949587661742",
+    "firebase_url": "https://aplikasi-daftar-universitas.firebaseio.com",
+    "project_id": "aplikasi-daftar-universitas",
+    "storage_bucket": "aplikasi-daftar-universitas.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:949587661742:android:b7a71a43cad1c6294f2e3f",
+        "android_client_info": {
+          "package_name": "com.example.daftaruniversitasindonesia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "949587661742-im9m97q13hokrrmn6fsr5agbseakh6e9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.daftaruniversitasindonesia",
+            "certificate_hash": "4f9abd8ae295532f57e33b457f8309c133706551"
+          }
+        },
+        {
+          "client_id": "949587661742-pg4h1oilu9fmuubi14do7df4851rgfvp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGvVdKsC1W0S2MPl7LcthPVipSdJNost4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "949587661742-pg4h1oilu9fmuubi14do7df4851rgfvp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:949587661742:android:18ee6507bb2836ed4f2e3f",
+        "android_client_info": {
+          "package_name": "com.example.univlist"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "949587661742-pg4h1oilu9fmuubi14do7df4851rgfvp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGvVdKsC1W0S2MPl7LcthPVipSdJNost4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "949587661742-pg4h1oilu9fmuubi14do7df4851rgfvp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

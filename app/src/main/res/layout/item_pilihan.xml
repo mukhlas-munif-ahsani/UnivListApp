@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/item_pilihan"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/item_terpilih"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="4dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Matematika"
+        android:textColor="@color/black"
+        android:fontFamily="@font/roboto_thin"/>
+
+</RelativeLayout>
