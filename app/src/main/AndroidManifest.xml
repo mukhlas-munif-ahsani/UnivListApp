@@ -4,9 +4,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/univ_list_icon"
+        android:icon="@drawable/du_app_icon"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/univ_list_icon"
+        android:roundIcon="@drawable/du_app_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".TambahData4.TambahDataActivity4"></activity>
