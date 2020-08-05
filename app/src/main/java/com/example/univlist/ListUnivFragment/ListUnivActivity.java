@@ -58,7 +58,7 @@ public class ListUnivActivity extends AppCompatActivity implements ListUnivAdapt
         Intent intent = getIntent();
         prodi = intent.getStringExtra("prodi");
         kategori = intent.getStringExtra("kategori");
-        Toast.makeText(this, prodi, Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, prodi, Toast.LENGTH_LONG).show();
         query = univListRef.whereArrayContains("prodi", prodi);
 
 //        univListRef.document(prodi).update("univ", FieldValue.arrayUnion("blabla"));
@@ -88,7 +88,7 @@ public class ListUnivActivity extends AppCompatActivity implements ListUnivAdapt
 
     @Override
     public void onItemClick(String univ, int position) {
-       Toast.makeText(this, univ, Toast.LENGTH_LONG).show();
+       //Toast.makeText(this, univ, Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, DetailProdiActivity.class);
         intent.putExtra("univ", univ);
         intent.putExtra("prodi", prodi);

@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -13,14 +14,20 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
+import com.example.univlist.HomeFragment;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 
 import android.os.Handler;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.inputmethod.EditorInfo;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -76,7 +83,12 @@ public class SaintekFragment extends Fragment implements SaintekListAdapter.OnLi
         mListView.setHasFixedSize(true);
         mListView.setAdapter(adapter);
 
+        setHasOptionsMenu(true);
 //        swipeRefresh();
+    }
+
+    public void coba(String safd) {
+        Toast.makeText(getActivity(), safd, Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -97,6 +109,8 @@ public class SaintekFragment extends Fragment implements SaintekListAdapter.OnLi
                 mListView.setAdapter(adapter);
             }
         });
+
+
     }
 
     private void swipeRefresh() {
@@ -125,11 +139,52 @@ public class SaintekFragment extends Fragment implements SaintekListAdapter.OnLi
 
     @Override
     public void onItemCliked(String prodi, String kategori, int position) {
-        Toast.makeText(getActivity(), prodi + kategori, Toast.LENGTH_LONG).show();
+        //Toast.makeText(getActivity(), prodi + kategori, Toast.LENGTH_LONG).show();
         Intent intent = new Intent(getActivity(), ListUnivActivity.class);
         intent.putExtra("prodi", prodi);
         intent.putExtra("kategori", kategori);
         startActivity(intent);
     }
 
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.dot_menu, menu);
+        MenuItem searchItem = menu.findItem(R.id.action_search);
+        SearchView searchView = (SearchView) searchItem.getActionView();
+
+        searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                //adapter.getFilter().filter(query);
+                //Toast.makeText(getActivity(), query, Toast.LENGTH_LONG).show();
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                adapter.getFilter().filter(newText);
+                return false;
+            }
+        });
+
+        searchItem.setOnActionExpandListener(new MenuItem.OnActionExpandListener() {
+            @Override
+            public boolean onMenuItemActionExpand(MenuItem menuItem) {
+                HomeFragment.getInstance().showTab();
+                return true;
+            }
+
+            @Override
+            public boolean onMenuItemActionCollapse(MenuItem menuItem) {
+                HomeFragment.getInstance().hideTab();
+                return true;
+            }
+        });
+
+
+        //return true;
+        //super.onCreateOptionsMenu(menu, inflater);
+    }
 }

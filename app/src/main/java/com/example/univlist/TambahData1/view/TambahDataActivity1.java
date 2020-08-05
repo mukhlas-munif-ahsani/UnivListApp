@@ -75,7 +75,8 @@ public class TambahDataActivity1 extends AppCompatActivity implements TambahData
 
         String[] levelItems = new String[]{
                 "SOSHUM",
-                "SAINTEK"
+                "SAINTEK",
+                "PENDIDIKAN"
         };
 
         ArrayAdapter<String> kategori = new ArrayAdapter<>(

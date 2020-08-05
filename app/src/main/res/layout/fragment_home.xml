@@ -6,7 +6,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".HomeFragment">
 
-
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar"
         android:layout_width="match_parent"
@@ -27,6 +26,7 @@
             android:id="@+id/viewpagertab_daftar_jurusan"
             android:layout_width="match_parent"
             android:layout_height="48dp"
+            android:visibility="visible"
             android:layout_below="@+id/appbar"
             android:background="@color/base_color"
             android:clipToPadding="false"
@@ -48,7 +48,7 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.viewpager.widget.ViewPager
+    <com.example.univlist.CustomViewPager
         android:id="@+id/viewpager_jurusan"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

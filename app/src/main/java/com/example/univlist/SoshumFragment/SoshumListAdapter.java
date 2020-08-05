@@ -3,6 +3,8 @@ package com.example.univlist.SoshumFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -10,12 +12,16 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.univlist.R;
+import com.example.univlist.SaintekFragment.SaintekListModel;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class SoshumListAdapter extends RecyclerView.Adapter<SoshumListAdapter.SoshumViewHolder> {
+public class SoshumListAdapter extends RecyclerView.Adapter<SoshumListAdapter.SoshumViewHolder> implements Filterable {
 
     private List<SoshumListModel> soshumListModels;
+    private List<SoshumListModel> soshumListModelsFull;
+
     private OnListItemCliked onListItemCliked;
 
     public SoshumListAdapter(OnListItemCliked onListItemCliked){
@@ -24,6 +30,7 @@ public class SoshumListAdapter extends RecyclerView.Adapter<SoshumListAdapter.So
 
     public void setSoshumListModels(List<SoshumListModel> soshumListModels) {
         this.soshumListModels = soshumListModels;
+        soshumListModelsFull = new ArrayList<>(soshumListModels);
     }
 
     @NonNull
@@ -79,4 +86,39 @@ public class SoshumListAdapter extends RecyclerView.Adapter<SoshumListAdapter.So
     public interface OnListItemCliked{
         void onItemCliked(String prodi, String kategori, int position);
     }
+
+    @Override
+    public Filter getFilter() {
+        return saintekFilter;
+    }
+
+    private Filter saintekFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence charSequence) {
+            List<SoshumListModel> filterredList = new ArrayList<>();
+
+            if (charSequence == null || charSequence.length() == 0){
+                filterredList.addAll(soshumListModelsFull);
+            } else {
+                String filterPattern = charSequence.toString().toLowerCase().trim();
+
+                for (SoshumListModel item : soshumListModelsFull){
+                    if (item.getSoshum_id().toLowerCase().contains(filterPattern)){
+                        filterredList.add(item);
+                    }
+                }
+            }
+
+            FilterResults results = new FilterResults();
+            results.values = filterredList;
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+            soshumListModels.clear();
+            soshumListModels.addAll((List) filterResults.values);
+            notifyDataSetChanged();
+        }
+    };
 }
